@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailMovieFragment"
+    android:background="@color/background"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/imageViewDetail"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/image_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:color/holo_green_dark" />
+
+    <TextView
+        android:id="@+id/titleMovieDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLength="30"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDetail"
+        tools:text="Testando filme nome" />
+
+    <TextView
+        android:id="@+id/descriptionMovieDetail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleMovieDetail"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae massa fermentum, blandit enim et, elementum ligula. Sed vitae justo quis nibh lacinia vehicula at sed arcu. Mauris vestibulum mattis porta. Donec tincidunt ut libero nec tincidunt. Vestibulum ultrices nisi vel pellentesque eleifend. Sed posuere leo lacus, eu sollicitudin eros ullamcorper ac. Sed iaculis vel est ac fermentum. Donec ut mattis leo. Curabitur enim mi, mollis nec sodales ac, molestie eget velit. Quisque accumsan risus malesuada, pulvinar mi ut, blandit velit. Lorem ipsum dolor sit amet, consectetur" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

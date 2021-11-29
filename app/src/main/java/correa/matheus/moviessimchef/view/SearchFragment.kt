@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -97,6 +98,14 @@ class SearchFragment : Fragment(), moviesAdapter.OnClickItemListener{
             }
     }
     override fun onItemClick(items: Movie, position: Int) {
-        Log.d("TESTE", items.title.toString())
+        val movie : HashMap<String,Movie> = hashMapOf(
+            "response" to items
+        )
+        val detailMovieFragment = DetailMovieFragment.newInstance(movie)
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, detailMovieFragment)
+            commit()
+        }
+
     }
 }
