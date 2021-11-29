@@ -17,22 +17,9 @@ class MainViewModel(private val movieRepository: MovieRepository)  : ViewModel()
         movieRepository.getMoviesByTitle(apiKey, title).enqueue(
             object : Callback<MovieResponse>{
                 override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                    val body = response.body()
                     var movieList : MutableList<Movie> = mutableListOf()
-                    if(body != null){
-                        val movie = Movie(
-                            title = body.title,
-                            year = body.year,
-                            rated = body.rated,
-                            released = body.released,
-                            genre = body.genre,
-                            imdbID = body.imdbID,
-                            director = body.director,
-                            type = body.type,
-                            writer = body.writer,
-                            poster = body.poster,
-                            plot = body.plot,
-                            )
+                    val movie = responseToMovie(response)
+                    if(movie != null){
                         movieList.add(movie)
                         movies.postValue(movieList)
                     }
@@ -49,22 +36,9 @@ class MainViewModel(private val movieRepository: MovieRepository)  : ViewModel()
         movieRepository.getMoviesByID(apiKey, id).enqueue(
             object : Callback<MovieResponse>{
                 override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                    val body = response.body()
                     var movieList : MutableList<Movie> = mutableListOf()
-                    if(body != null){
-                        val movie = Movie(
-                            title = body.title,
-                            year = body.year,
-                            rated = body.rated,
-                            released = body.released,
-                            genre = body.genre,
-                            imdbID = body.imdbID,
-                            director = body.director,
-                            type = body.type,
-                            writer = body.writer,
-                            poster = body.poster,
-                            plot = body.plot,
-                        )
+                    var movie = responseToMovie(response)
+                    if(movie != null){
                         movieList.add(movie)
                         movies.postValue(movieList)
                     }
@@ -76,5 +50,28 @@ class MainViewModel(private val movieRepository: MovieRepository)  : ViewModel()
 
             }
         )
+    }
+
+    fun responseToMovie(response : Response<MovieResponse>) : Movie?{
+        val body = response.body()
+
+        if(body != null){
+            val movie = Movie(
+                title = body.title,
+                year = body.year,
+                rated = body.rated,
+                released = body.released,
+                genre = body.genre,
+                imdbID = body.imdbID,
+                director = body.director,
+                type = body.type,
+                writer = body.writer,
+                poster = body.poster,
+                plot = body.plot,
+            )
+            return movie
+        }
+        return null
+
     }
 }
