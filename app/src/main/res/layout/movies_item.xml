@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ticketView"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    app:cardBackgroundColor="@color/second_color"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/image_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@android:color/holo_green_dark" />
+
+        <TextView
+            android:id="@+id/titleMovie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:maxLength="20"
+            android:ellipsize="end"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Testando filme nome" />
+
+        <TextView
+            android:id="@+id/descriptionMovie"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="start"
+            android:layout_margin="5dp"
+            android:maxLength="50"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/titleMovie"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae massa fermentum, blandit enim et, elementum ligula. Sed vitae justo quis nibh lacinia vehicula at sed arcu. Mauris vestibulum mattis porta. Donec tincidunt ut libero nec tincidunt. Vestibulum ultrices nisi vel pellentesque eleifend. Sed posuere leo lacus, eu sollicitudin eros ullamcorper ac. Sed iaculis vel est ac fermentum. Donec ut mattis leo. Curabitur enim mi, mollis nec sodales ac, molestie eget velit. Quisque accumsan risus malesuada, pulvinar mi ut, blandit velit. Lorem ipsum dolor sit amet, consectetur" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
