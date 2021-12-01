@@ -1,20 +1,19 @@
 package correa.matheus.moviessimchef.view
 
+import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import correa.matheus.moviessimchef.R
+import correa.matheus.moviessimchef.data.localStore.MovieDatabase
 import correa.matheus.moviessimchef.data.model.Movie
 import correa.matheus.moviessimchef.data.repository.MovieRepository
-import correa.matheus.moviessimchef.databinding.FragmentHomeBinding
 import correa.matheus.moviessimchef.databinding.FragmentSearchBinding
 import correa.matheus.moviessimchef.view.adapter.moviesAdapter
 import correa.matheus.moviessimchef.viewModel.MainViewModel
@@ -38,7 +37,9 @@ class SearchFragment : Fragment(), moviesAdapter.OnClickItemListener{
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProvider(this, MainViewModelFactory(MovieRepository())).get(
+
+        val movieDao = context?.let { MovieDatabase.getDatabase(context = it)?.movieDao() }!!
+        viewModel = ViewModelProvider(this, MainViewModelFactory(MovieRepository(movieDao))).get(
             MainViewModel::class.java)
 
 
